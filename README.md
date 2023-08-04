@@ -1,0 +1,1 @@
+# lib-management-cassandra-Solr
