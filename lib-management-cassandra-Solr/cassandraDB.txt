@@ -1,0 +1,13 @@
+CREATE KEYSPACE IF NOT EXISTS student
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+use student;
+
+CREATE TABLE IF NOT EXISTS student.details (
+    bookid int PRIMARY KEY,
+    bookname text,
+    time timestamp,
+    date date,
+    studid text,
+    studname text
+);

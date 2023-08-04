@@ -1,0 +1,153 @@
+create a core named as books and insert the values of the books with the following fields
+
+
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":1,
+    "params":{
+      "q":"*:*",
+      "rows":"30",
+      "_":"1691142772606"}},
+  "response":{"numFound":20,"start":0,"docs":[
+      {
+        "s.no":[1],
+        "name":["The Catcher in the Rye"],
+        "author":["J.D. Salinger"],
+        "year":[1951],
+        "id":"008ce8f0-a722-455e-ab4e-05cbc794a894",
+        "_version_":1773121478430031872},
+      {
+        "s.no":[2],
+        "name":["To Kill a Mockingbird"],
+        "author":["Harper Lee"],
+        "year":[1960],
+        "id":"016b0a72-36a6-4804-9b96-c383c3686d42",
+        "_version_":1773121478455197696},
+      {
+        "s.no":[3],
+        "name":["1984"],
+        "author":["George Orwell"],
+        "year":[1949],
+        "id":"90ad1beb-13fc-4f15-91da-a482fb94ddd1",
+        "_version_":1773121478460440576},
+      {
+        "s.no":[4],
+        "name":["The Great Gatsby"],
+        "author":["F. Scott Fitzgerald"],
+        "year":[1925],
+        "id":"294c8568-c617-47c0-83e0-91ceac7ca91f",
+        "_version_":1773121478463586304},
+      {
+        "s.no":[5],
+        "name":["Pride and Prejudice"],
+        "author":["Jane Austen"],
+        "year":[1813],
+        "id":"712af5ad-0c32-45cf-8c07-60218617729c",
+        "_version_":1773121478468829184},
+      {
+        "s.no":[6],
+        "name":["Harry Potter and the Sorcerer's Stone"],
+        "author":["J.K. Rowling"],
+        "year":[1997],
+        "id":"50c8708c-cc7f-4361-a6a4-c444801a6051",
+        "_version_":1773121478471974912},
+      {
+        "s.no":[7],
+        "name":["The Lord of the Rings: The Fellowship of the Ring"],
+        "author":["J.R.R. Tolkien"],
+        "year":[1954],
+        "id":"63226223-c275-4a78-82c5-e6e415f11b37",
+        "_version_":1773121478476169216},
+      {
+        "s.no":[8],
+        "name":["Brave New World"],
+        "author":["Aldous Huxley"],
+        "year":[1932],
+        "id":"bb383601-707a-4e81-b983-173039b08e3f",
+        "_version_":1773121478478266368},
+      {
+        "s.no":[9],
+        "name":["The Hobbit"],
+        "author":["J.R.R. Tolkien"],
+        "year":[1937],
+        "id":"64574fe3-3362-4f3a-934d-089688d67477",
+        "_version_":1773121478482460672},
+      {
+        "s.no":[10],
+        "name":["Fahrenheit 451"],
+        "author":["Ray Bradbury"],
+        "year":[1953],
+        "id":"3373f636-dd6c-4bb1-8103-75480924c143",
+        "_version_":1773121478486654976},
+      {
+        "s.no":[11],
+        "name":["Animal Farm"],
+        "author":["George Orwell"],
+        "year":[1945],
+        "id":"abffd698-50e6-4e6c-98b4-a10439362ee4",
+        "_version_":1773121478489800704},
+      {
+        "s.no":[12],
+        "name":["The Chronicles of Narnia: The Lion, the Witch, and the Wardrobe"],
+        "author":["C.S. Lewis"],
+        "year":[1950],
+        "id":"32061fad-ee14-4e83-8eda-6c0acc4ddc87",
+        "_version_":1773121478493995008},
+      {
+        "s.no":[13],
+        "name":["The Hitchhiker's Guide to the Galaxy"],
+        "author":["Douglas Adams"],
+        "year":[1979],
+        "id":"7263b347-d6c6-4c42-8814-a32b776bb48b",
+        "_version_":1773121478498189312},
+      {
+        "s.no":[14],
+        "name":["The Da Vinci Code"],
+        "author":["Dan Brown"],
+        "year":[2003],
+        "id":"12ece35c-2055-4686-814b-5f5675df5947",
+        "_version_":1773121478502383616},
+      {
+        "s.no":[15],
+        "name":["The Alchemist"],
+        "author":["Paulo Coelho"],
+        "year":[1988],
+        "id":"fce1edb9-7b1a-4ee3-97d9-a87c1a565d23",
+        "_version_":1773121478506577920},
+      {
+        "s.no":[16],
+        "name":["Harry Potter and the Prisoner of Azkaban"],
+        "author":["J.K. Rowling"],
+        "year":[1999],
+        "id":"44c30812-8545-447b-974b-eadf1927ab98",
+        "_version_":1773121478509723648},
+      {
+        "s.no":[17],
+        "name":["Gone with the Wind"],
+        "author":["Margaret Mitchell"],
+        "year":[1936],
+        "id":"de7172be-f083-474c-99f2-71de7da63736",
+        "_version_":1773121478512869376},
+      {
+        "s.no":[18],
+        "name":["The Hunger Games"],
+        "author":["Suzanne Collins"],
+        "year":[2008],
+        "id":"843745f3-8c2f-42bb-b846-0ff08f9e6e75",
+        "_version_":1773121478518112256},
+      {
+        "s.no":[19],
+        "name":["The Kite Runner"],
+        "author":["Khaled Hosseini"],
+        "year":[2003],
+        "id":"20cd8e28-7a38-4a5a-a1c9-efd96c4b899c",
+        "_version_":1773121478521257984},
+      {
+        "s.no":[20],
+        "name":["The Book Thief"],
+        "author":["Markus Zusak"],
+        "year":[2005],
+        "id":"9427437c-dc61-40cd-8144-3132984bf23b",
+        "_version_":1773121478524403712}]
+  }}
