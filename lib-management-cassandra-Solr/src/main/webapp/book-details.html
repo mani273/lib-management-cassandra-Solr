@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Details</title>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <p>ISBN: <span id="isbn"></span></p>
+    <p>Title: <span id="title"></span></p>
+    <p>Author: <span id="author"></span></p>
+    <a href="/books">Back to Book List</a>
+<!-- ... same as before ... -->
+<p>ISBN: <span id="isbn"></span></p>
+<p>Title: <span id="title"></span></p>
+<p>Author: <span id="author"></span></p>
+<a href="/books">Back to Book List</a>
+
+<script>
+    // JavaScript code to fetch and populate book details
+    const isbn = window.location.pathname.split("/").pop();
+    fetch(`/api/books/${isbn}`)
+        .then(response => response.json())
+        .then(book => {
+            document.getElementById("isbn").innerText = book.isbn;
+            document.getElementById("title").innerText = book.title;
+            document.getElementById("author").innerText = book.author;
+        });
+</script>
+
+</body>
+</html>

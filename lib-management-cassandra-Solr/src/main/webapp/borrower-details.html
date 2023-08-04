@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrower Details</title>
+</head>
+<body>
+    <h1>Borrower Details</h1>
+    <p>Borrower ID: <span id="borrowerId"></span></p>
+    <p>Name: <span id="name"></span></p>
+    <a href="/borrowers">Back to Borrower List</a>
+
+
+<!-- ... same as before ... -->
+<p>Borrower ID: <span id="borrowerId"></span></p>
+<p>Name: <span id="name"></span></p>
+<a href="/borrowers">Back to Borrower List</a>
+
+<script>
+    // JavaScript code to fetch and populate borrower details
+    const borrowerId = window.location.pathname.split("/").pop();
+    fetch(`/api/borrowers/${borrowerId}`)
+        .then(response => response.json())
+        .then(borrower => {
+            document.getElementById("borrowerId").innerText = borrower.borrowerId;
+            document.getElementById("name").innerText = borrower.name;
+        });
+</script>
+
+
+</body>
+</html>

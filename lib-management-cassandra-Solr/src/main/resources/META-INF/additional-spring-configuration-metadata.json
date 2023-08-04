@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "spring.main.jackson.add-parameter-names-module",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.main.jackson.add-parameter-names-module'"
+  },
+  {
+    "name": "spring.data.solr.host",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.data.solr.host'"
+  },
+  {
+    "name": "cassandra.contact-points",
+    "type": "java.lang.String",
+    "description": "A description for 'cassandra.contact-points'"
+  },
+  {
+    "name": "cassandra.port",
+    "type": "java.lang.String",
+    "description": "A description for 'cassandra.port'"
+  },
+  {
+    "name": "cassandra.keyspace",
+    "type": "java.lang.String",
+    "description": "A description for 'cassandra.keyspace'"
+  },
+  {
+    "name": "solr.url",
+    "type": "java.lang.String",
+    "description": "A description for 'solr.url'"
+  }
+]}

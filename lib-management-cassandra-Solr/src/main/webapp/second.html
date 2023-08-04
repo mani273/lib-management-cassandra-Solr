@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book to Borrow</title>
+</head>
+<body>
+    <h1>Book to Borrow</h1>
+    <label for="bookName">BookName:</label>
+    <input type="text" id="bookName" />
+    <button onclick="searchBooks()">Submit</button>
+
+    <div id="result"></div>
+
+    <script>
+    // ... Your existing functions ...
+     function searchBooks() {
+        const bookName = document.getElementById("bookName").value;
+        const url = `/searchBooks?bookName=${encodeURIComponent(bookName)}`;
+
+        console.log(url);
+        fetch(url)
+            .then(response => response.json())
+            .then(data => displayResults(data.response.docs))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function saveBook(sNo, author, year) {
+        const bookName = document.getElementById("bookName").value;
+        const url = `/saveBook?sNo=${sNo}&author=${encodeURIComponent(author)}&bookName=${encodeURIComponent(bookName)}&year=${year}`;
+        
+        fetch(url, { method: 'POST' })
+            .then(response => response.text())
+            .then(message => alert(message))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function displayResults(docs) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+
+        if (docs.length === 0) {
+            resultDiv.innerHTML = "No matching books found.";
+            return;
+        }
+
+        for (const doc of docs) {
+        	console.log(JSON.stringify(docs));
+        	const name = doc["name"][0];
+            const sNo = doc["s.no"][0];
+            const author = doc["author"][0];
+            const year = doc["year"][0];
+
+            const bookInfo = document.createElement("div");
+            bookInfo.innerHTML = `<p>Book Name: ${name}</p><p>S.No.: ${sNo}</p><p>Author: ${author}</p><p>Year: ${year}</p>`;
+            resultDiv.appendChild(bookInfo);
+
+            // Create a button to save the selected book
+            const saveButton = document.createElement("button");
+            saveButton.textContent = "Borrow Book";
+            saveButton.onclick = () => saveBook(sNo, author, year);
+            bookInfo.appendChild(saveButton);
+        }
+    }
+    </script>
+</body>
+</html>

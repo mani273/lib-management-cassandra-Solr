@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Borrower</title>
+</head>
+<body>
+    <h1>Add Borrower</h1>
+   
+        <label>Borrower ID: <input type="text" id="borrowerId" /></label><br/>
+        <label>Name: <input type="text" id="name" /></label><br/>
+        <!-- <button type="button" onclick="addBorrower()">Add</button> -->
+        <input type="button" id="addbtn" value="Add" class="btn btn-outline-success">
+   
+    <a href="/borrowers">Back to Borrower List</a>
+
+<script>
+    /* function addBorrower() {
+        const borrower = {
+            borrowerId: document.getElementById("borrowerId").value,
+            name: document.getElementById("name").value
+        };
+
+        fetch("/api/borrowers", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(borrower)
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = "/borrowers";
+            }
+        });
+    }
+     */
+    
+    
+    
+    
+    
+    
+    
+    
+    $(document).ready(function(){
+    	console.log("Called");
+    	$("#addbtn").click("submit",function(){
+    		var book = {borrowerId:$("#borrowerId").val(),
+    					name:$("#name").val()};
+    					console.log(emp);
+    					//alert("From Client"+emp);
+    		$.ajax({
+    			type: "POST",
+    			dataType: "json",
+    			data: { EmpJSON: JSON.stringify(book) },
+    			contentType: "application/json",
+    			url: "/",
+    			success: function(data1) {
+    				//alert("From Server" + JSON.stringify(data1));
+    				console.log(JSON.stringify(data1));
+    			}
+    		});	
+    	});
+    });
+</script>
+
+
+</body>
+</html>

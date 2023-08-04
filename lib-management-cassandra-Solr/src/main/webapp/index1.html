@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management</title>
+</head>
+<body>
+    <h1>Add a Book</h1>
+    <form id="addBookForm">
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn" required>
+        <br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+        <br>
+        <button type="submit">Save Book</button>
+    </form>
+
+    <script>
+        const addBookForm = document.getElementById("addBookForm");
+
+        addBookForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addBookForm);
+            const bookData = {};
+            formData.forEach((value, key) => {
+                bookData[key] = value;
+            });
+
+            saveBook(bookData);
+        });
+
+        function saveBook(bookData) {
+            fetch("/api/books", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(bookData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message); // Show a success message
+                    addBookForm.reset(); // Clear the form after successful submission
+                })
+                .catch((error) => {
+                    alert("Error saving the book. Please try again.");
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>

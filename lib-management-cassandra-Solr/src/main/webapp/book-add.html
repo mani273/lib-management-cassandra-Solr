@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Book Management</h1>
+    <label>Search: <input type="text" id="searchInput" /></label>
+    <input type="button" id="searchBtn" value="Search" class="btn btn-outline-primary">
+    <br/><br/>
+    <h2>Add Book</h2>
+    <label>isbn: <input type="text" id="isbn" /></label><br/>
+    <label>title: <input type="text" id="title" /></label><br/>
+    <label>author: <input type="text" id="author" /></label><br/>
+    <input type="button" id="addBtn" value="Add" class="btn btn-outline-success">
+
+    <h2>Search Results</h2>
+    <table id="searchResultsTable">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $("#addBtn").click(function() {
+                var book = {
+                    isbn: $("#isbn").val(),
+                    title: $("#title").val(),
+                    author: $("#author").val()
+                };
+                console.log(book);
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: JSON.stringify(book),
+                    contentType: "application/json",
+                    url: "/api/books",
+                    success: function(data1) {
+                        console.log(JSON.stringify(data1));
+                        // Clear input fields after successful addition
+                        $("#isbn").val("");
+                        $("#title").val("");
+                        $("#author").val("");
+                    },
+                    error: function(error) {
+                        console.error("Error adding book:", error);
+                    }
+                });
+            });
+
+            $("#searchBtn").click(function() {
+                var searchText = $("#searchInput").val();
+                searchBooksAPI(searchText);
+            });
+
+            function searchBooksAPI(query) {
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    contentType: "application/json",
+                    url: "/api/books/search?q=" + encodeURIComponent(query),
+                    success: function(data) {
+                        console.log(data);
+                        displaySearchResults(data);
+                    },
+                    error: function(error) {
+                        console.error("Error searching books:", error);
+                    }
+                });
+            }
+
+            function displaySearchResults(results) {
+                var tableBody = $("#searchResultsTable tbody");
+                tableBody.empty();
+                results.forEach(function(book) {
+                    var row = $("<tr>");
+                    row.append($("<td>").text(book.isbn));
+                    row.append($("<td>").text(book.title));
+                    row.append($("<td>").text(book.author));
+                    tableBody.append(row);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
